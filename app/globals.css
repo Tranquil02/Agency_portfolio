@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+
+.cyber-scene,
+.cyber-scene * {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.cyber-scene,
+.cyber-scene > * {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Keyboard */
+.keyboard-plate {
+  position: absolute;
+  inset: 0;
+  border-radius: 1.4rem;
+  background: linear-gradient(to bottom, #020617, #01030a);
+  transform: translateZ(-12px);
+}
+
+.key {
+  height: 36px;
+  border-radius: 0.45rem;
+  background: linear-gradient(to bottom, #1f2937, #020617);
+  transform: translateZ(16px);
+  box-shadow:
+    0 5px 0 #020617,
+    inset 0 1px 0 rgba(255,255,255,0.08);
+}
+
+.key-active {
+  transform: translateZ(6px);
+  box-shadow: 0 2px 0 #020617;
+  background: linear-gradient(to bottom, #818cf8, #4f46e5);
+}
