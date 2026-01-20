@@ -66,7 +66,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <p className="text-[8px] md:text-[10px] font-black text-gray-600 uppercase tracking-widest mb-1">Email</p>
-                    <a href="mailto:mauryanstudio@gmail.com" className="text-base md:text-lg font-bold hover:text-orange-500 transition-colors">mauryanstudio@gmail.com</a>
+                    <a href="mailto:mauryanstudio@gmail.com" className="text-base md:text-lg font-bold hover:text-orange-500 transition-colors">mauryanstudio2026@gmail.com</a>
                   </div>
                 </div>
                 <div className="flex items-center gap-5 md:gap-6 group">

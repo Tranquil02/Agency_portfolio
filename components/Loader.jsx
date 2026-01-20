@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
@@ -9,10 +11,12 @@ const PreLoader = ({ onComplete }) => {
       setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(timer);
-          setTimeout(onComplete, 500); // Small delay after 100% for smoothness
+          setTimeout(onComplete, 500);
           return 100;
         }
-        return prev + Math.floor(Math.random(0,8) * 15); // Random jumps for realistic feel
+
+        const increment = Math.floor(Math.random() * 10) + 5; // 5–15%
+        return Math.min(prev + increment, 100);
       });
     }, 150);
 
@@ -21,47 +25,50 @@ const PreLoader = ({ onComplete }) => {
 
   return (
     <div className="fixed inset-0 z-[999] bg-black flex flex-col items-center justify-center overflow-hidden">
-      {/* Background Decorative Element */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-orange-600/10 blur-[120px] rounded-full" />
+      {/* Ambient Glow */}
+      <div className="absolute w-[500px] h-[500px] bg-orange-600/10 blur-[120px] rounded-full" />
 
-      <div className="container mx-auto text-center flex flex-col justify-center items-center">
-        {/* //logo and title */}
-        <div className="text-3xl md:text-4xl font-black tracking-tighter uppercase italic mb-8 md:mb-12">
-          <Image
-            src="/images/logo.png"
-            alt="Mauryan Studio Logo"
-            width={70}
-            height={70}
-            className="inline-block mb-2 object-contain"
-            priority
-          />
-          MAURYAN <span className="text-orange-500">STUDIO</span>
+      <div className="relative flex flex-col items-center gap-6 text-center">
+        {/* Logo + Brand */}
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center">
+            <Image
+              src="/images/logo.png"
+              alt="Mauryan Studio Logo"
+              width={32}
+              height={32}
+              priority
+            />
+          </div>
+          <div className="text-sm font-bold tracking-widest">
+            MAURYAN <span className="text-orange-500">STUDIO</span>
+          </div>
         </div>
 
-        {/* Progress Container */}
-        <div className="w-64 md:w-80 h-[2px] bg-white/10 relative rounded-full overflow-hidden">
+        {/* Progress Bar */}
+        <div className="w-64 md:w-80 h-[2px] bg-white/10 rounded-full overflow-hidden">
           <div
-            className="absolute top-0 left-0 h-full bg-orange-600 transition-all duration-300 ease-out"
+            className="h-full bg-orange-600 transition-all duration-300 ease-out"
             style={{ width: `${progress}%` }}
           />
         </div>
 
-        {/* Percentage */}
-        <div className="mt-4 flex items-center justify-center gap-2">
-          <span className="text-orange-500 font-mono text-sm font-bold tracking-widest">
+        {/* Status */}
+        <div className="flex items-center gap-2">
+          <span className="text-orange-500 font-mono text-sm font-bold">
             {progress}%
           </span>
-          <span className="text-gray-500 text-[10px] font-black uppercase tracking-[0.2em]">
-            INITIALIZING ASSETS
+          <span className="text-gray-500 text-[10px] font-black tracking-[0.25em] uppercase">
+            Initializing Assets
           </span>
         </div>
       </div>
 
-      {/* Aesthetic Footer for Loader */}
-      <div className="absolute bottom-12 text-gray-600 text-[8px] font-black tracking-[0.5em] uppercase">
-        © 2026 MAURYAN STUDIO ONLINE
+      {/* Footer */}
+      <div className="absolute bottom-10 text-gray-600 text-[8px] font-black tracking-[0.4em] uppercase">
+        © 2026 Mauryan Studio Online
       </div>
-    </div >
+    </div>
   );
 };
 
