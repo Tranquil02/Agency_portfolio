@@ -1,6 +1,7 @@
 import { ArrowRight, Sparkles } from "lucide-react";
 import CyberWorkspace from "./cyberWork";
 import GrowthSignals from "./growthSignals";
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -12,7 +13,7 @@ export default function Hero() {
             className="text-4xl sm:text-6xl md:text-[9vw] lg:text-[8vw] font-black uppercase italic tracking-tighter leading-none py-[0.15em] text-left overflow-visible"
           >
             WE TURN <br />
-            <span className="text-transparent pr-9 bg-clip-text bg-linear-to-r from-orange-500 via-white to-orange-800">
+            <span className="text-transparent absolute pr-9 bg-clip-text bg-linear-to-r from-orange-500 via-white to-orange-800">
               IDEAS INTO
             </span>
             <br />
@@ -26,14 +27,15 @@ export default function Hero() {
                 Mauryan Studio is a premium creative agency crafting <span className="text-white font-medium">high-performance</span> digital experiences. We design websites that convert.
               </p>
               <div className="flex flex-wrap items-center gap-2 md:gap-8">
-                <button className="flex items-center gap-3 md:gap-4 px-8 md:px-12 py-4 md:py-6 bg-orange-600 rounded-full font-black text-[9px] md:text-[11px] uppercase tracking-[0.3em] hover:scale-105 active:scale-95 transition-all shadow-2xl shadow-orange-600/30">
+                <Link className="flex items-center gap-3 md:gap-4 px-8 md:px-12 py-4 md:py-6 bg-orange-600 rounded-full font-black text-[9px] md:text-[11px] uppercase tracking-[0.3em] hover:scale-105 active:scale-95 transition-all shadow-2xl shadow-orange-600/30"
+                  href="#contact">
                   Get Started <ArrowRight className="w-4 h-4" />
-                </button>
+                </Link>
                 <div className="flex items-center gap-3 md:gap-4 group cursor-pointer bg-white text-black p-4 rounded-3xl hover:bg-orange-500 text-2xl hover:text-white hover:scale-105">
                   <div className="rounded-full border border-white/20 flex items-center justify-center transition-all">
                     <ArrowRight size={16} />
                   </div>
-                  <span className="text-[9px] md:text-[10px] font-black tracking-[0.2em] uppercase">Our Work</span>
+                  <Link className="text-[9px] md:text-[10px] font-black tracking-[0.2em] uppercase" href="#work">Our Work</Link>
                 </div>
               </div>
             </div>
@@ -41,7 +43,7 @@ export default function Hero() {
         </div>
         {/* animated laptop,keyboard and phone */}
         <div className="hidden md:flex items-center">
-          <div className="w-full  relative">
+          <div className="w-full">
             <CyberWorkspace />
             {/* <GrowthSignals /> */}
           </div>
