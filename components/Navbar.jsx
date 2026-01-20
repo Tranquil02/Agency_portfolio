@@ -2,6 +2,7 @@
 import { Menu, X } from "lucide-react";
 import useScroll from "@/hooks/useScroll";
 import { useState } from "react";
+import Image from "next/image";
 
 export default function Navbar() {
   const scrolled = useScroll();
@@ -19,8 +20,15 @@ export default function Navbar() {
       <nav className={`fixed top-0 w-full z-[100] transition-all duration-500 px-4 md:px-12 ${scrolled ? 'py-4 bg-black/80 backdrop-blur-xl border-b border-white/5' : 'py-6 md:py-8'}`}>
         <div className="container mx-auto flex justify-between items-center">
           <div className="flex items-center gap-3 group cursor-pointer">
-            <div className="w-8 h-8 md:w-10 md:h-10 bg-orange-600 rounded-xl flex items-center justify-center transition-all group-hover:rotate-12">
-              <span className="text-white font-black text-lg md:text-xl italic">M</span>
+            <div className="w-8 h-8 md:w-10 md:h-10 bg-white rounded-xl flex items-center justify-center transition-all group-hover:rotate-12">
+              <Image
+                src="/images/logo.png"
+                alt="Mauryan Studio Logo"
+                width={70}
+                height={70}
+                className="object-contain"
+                priority
+              />
             </div>
             <div className="flex flex-col text-left">
               <span className="text-xs md:text-sm font-black tracking-[0.3em] uppercase leading-none">Mauryan</span>

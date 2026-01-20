@@ -1,12 +1,22 @@
 import { Globe, Instagram, Linkedin, Twitter } from "lucide-react";
+import Image from "next/image";
 
 
 
 export default function Footer() {
   return (
     <footer className="py-16 md:py-24 border-t border-white/5 bg-black relative z-10 px-4">
-      <div className="container mx-auto text-center">
+      <div className="container mx-auto text-center flex flex-col justify-center items-center">
+        {/* //logo and title */}
         <div className="text-3xl md:text-4xl font-black tracking-tighter uppercase italic mb-8 md:mb-12">
+          <Image
+            src="/images/logo.png"
+            alt="Mauryan Studio Logo"
+            width={70}
+            height={70}
+            className="inline-block mb-2 object-contain"
+            priority
+          />
           MAURYAN <span className="text-orange-500">STUDIO</span>
         </div>
         <div className="flex flex-wrap justify-center gap-6 md:gap-12 text-[8px] md:text-[10px] font-black tracking-[0.4em] uppercase text-gray-600 mb-12 md:mb-20">

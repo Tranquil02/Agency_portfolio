@@ -15,7 +15,7 @@ const team = [
   },
   {
     name: "ABHISHEK BHARADWAJ",
-    role: "HEAD OF GROWTH",
+    role: "HEAD OF GROWTH & CFO",
     tag: "Strategy",
     image: "/images/abhishek.jpeg",
   },
